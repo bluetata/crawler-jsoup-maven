@@ -5,4 +5,4 @@
  * @author bluetata
  *
  */
-package com.datacrawler.util;
+package com.datacrawler.common.util;
