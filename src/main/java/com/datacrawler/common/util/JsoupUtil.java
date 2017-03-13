@@ -17,19 +17,18 @@ public class JsoupUtil {
     // 所传のURL必须以 "http://www."开头
     public static String getHtml(String url) throws Exception {
 
-        String html = "";
-        Document doc = null;
+        Document doc = Jsoup.connect(url).timeout(10000).userAgent("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_6_8) AppleWebKit/534.30 (KHTML, like Gecko) Chrome/12.0.742.122 Safari/534.30").get();
+        String _html = doc.toString().replaceAll("&amp;", "&");
 
-        doc = Jsoup.connect(url).timeout(10000).userAgent("Mozilla").get();
-        html = doc.toString().replaceAll("&amp;", "&");
-
-        return html;
+        return _html;
     }
 
     // 以 Document 对象形式返回网页
     public static Document getDocument(String url) throws Exception {
-        Document doc = null;
-        doc = Jsoup.connect(url).timeout(10000).userAgent("Mozilla").get();
+        Document doc = Jsoup.connect(url).timeout(10000)
+                .userAgent(
+                        "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_6_8) AppleWebKit/534.30 (KHTML, like Gecko) Chrome/12.0.742.122 Safari/534.30")
+                .get();
 
         return doc;
     }
