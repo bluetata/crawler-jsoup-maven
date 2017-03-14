@@ -88,5 +88,25 @@ public class StringUtil {
     }
     
     
+    /**
+     * 文字列が空とNUllを検証する。<br>
+     * 
+     * @param str 処理対象の文字列
+     * @return 処理対象の文字列が <code>null</code> または空文字列の場合は <code>true</code>
+     */
+    public static boolean isEmpty(String str) {
+        return str == null || str.length() == 0;
+    }
+    
+    /**
+     * 文字列がNUllを検証する。<br>
+     * 
+     * @param str 処理対象の文字列
+     * @return 処理対象の文字列が <code>null</code> の場合は <code>true</code>
+     */
+    public static boolean isBlank(String str) {
+        return str == null;
+    }
+    
     
 }

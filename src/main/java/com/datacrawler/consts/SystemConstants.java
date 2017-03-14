@@ -124,28 +124,4 @@ public class SystemConstants {
      * 系统当前的JS版本号
      */
     public static final String SYS_JS_VER = "system.js.version";
-
-    /* -------------------------↓--------------------------------------------------------
-     * conts mark code
-    /* -------------------------↓--------------------------------------------------------*/
-
-    /** 
-     * quantity sign/ 数量サイン
-     */
-    public static final String QTY_SIGN = "-";
-
-    /**
-     * half space / スペース
-     */
-    public static final String HALF_SPACE = " ";
-    
-    /**
-     * file separator:bias / 斜線
-     */
-    public static final String FILE_SEPARATOR = "/";
-    
-    
-    /* -------------------------↑--------------------------------------------------------
-     * conts mark code
-    /* -------------------------↑--------------------------------------------------------*/
 }

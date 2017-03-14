@@ -1,13 +1,15 @@
 package com.datacrawler.common.util;
 
-import java.io.FileInputStream;
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.Hashtable;
 import java.util.Properties;
 
 import com.datacrawler.consts.SystemConstants;
+import com.datacrawler.consts.UtilsConstants;
 
 /**
  * 
@@ -18,7 +20,7 @@ import com.datacrawler.consts.SystemConstants;
  * @since datasnatch(crawler) version(1.0)
  */
 public class PropertyReader {
-    
+
     // 系统配置文件路径
     final static String configPath = System.getProperty(SystemConstants.CONFIG_PATH_KEY);
 
@@ -508,23 +510,21 @@ public class PropertyReader {
         String v2_ = PropertyReader.getValue(path, "name");
         Log4jUtil.info("value2 = " + v2_);
     }
-    
-    
-    
+
     /**
-     *      
-     * The method <code> getProperties </code>
-     * Loads the given property file by searching the CLASSPATH or
-     * java.class.path system property value and returns the Properties object. 
+     * 
+     * The method <code> getProperties </code> Loads the given property file by
+     * searching the CLASSPATH or java.class.path system property value and
+     * returns the Properties object.
      * 
      * @param propertyFileName
      *            Name of the property file.
      * @return Returns Properties object containing the contents of the
      *         specified Properties file.
      * @throws java.io.FileNotFoundException
-     *                Thrown if the given property file could not found in the
-     *                CLASSPATH.
-     *                
+     *             Thrown if the given property file could not found in the
+     *             CLASSPATH.
+     * 
      * @author bluetata 2017/03/14 / dietime1943@hotmail.com
      * @author Name Date(YYYY/MM/dd)
      * @since datasnatch(crawler) version(1.0)
@@ -532,20 +532,30 @@ public class PropertyReader {
     public static Properties getProperties(String propertyFileName) throws java.io.FileNotFoundException {
 
         InputStream is = null;
+        Properties props = null;
+
         try {
+            if (StringUtil.isEmpty(propertyFileName)) {
+                throw new IllegalArgumentException(propertyFileName + " not found");
+            }
+            
+            // PROPS_SUFFIX :.properties
+            String suffix = UtilsConstants.PROPS_SUFFIX;
+            if (propertyFileName.lastIndexOf(suffix) == -1) {
+                propertyFileName += suffix;
+            }
+            
             // String configPath = System.getProperty("configPath");
             // File file = new File(configPath + SystemConstants.FILE_SEPARATOR + propertyFileName);
-            is = new FileInputStream(FileHelpers.getFile(propertyFileName));
+            // is = new FileInputStream(FileHelpers.getFile(propertyFileName));
+            is = Thread.currentThread().getContextClassLoader()
+                    .getResourceAsStream(configPath + File.separator + propertyFileName);
             
-            if (is == null) {
-                throw new FileNotFoundException(propertyFileName + " not found");
-            }
-
             // load properties
-            Properties props = new Properties();
-            props.load(is);
-            return props;
-
+            if (is != null) {
+                props = new Properties();
+                props.load(new InputStreamReader(is, UtilsConstants.DEFAULT_CHARSET));
+            }
         } catch (Exception ignore) {
             ignore.printStackTrace();
             throw new java.io.FileNotFoundException(propertyFileName + " not found");
@@ -558,6 +568,7 @@ public class PropertyReader {
                 }
             }
         }
+        return props;
     }
-    
+
 }

@@ -1,10 +1,6 @@
 package com.datacrawler.common.util;
 
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.InputStream;
 import java.util.Properties;
 import java.util.StringTokenizer;
 import java.util.UUID;
@@ -19,7 +15,7 @@ public final class FileHelpers {
 
     // 系统配置文件路径
     final static String configPath = System.getProperty(SystemConstants.CONFIG_PATH_KEY);
-    // final static String configPath ="C://datasnatch//lib//conf//";
+    // final static String configPath ="C://crawler-jsoup-maven//lib//conf//";
 
     // class path
     private static final String SYSTEM_CLASS_PATH_PROPERTY_NAME = "java.class.path";
@@ -40,78 +36,82 @@ public final class FileHelpers {
     private FileHelpers() {
     }
 
-    /**
-     * 
-     * The method <code> getProperties </code> . Loads the given property file
-     * by searching the CLASSPATH or java.class.path system property value and
-     * returns the Properties object.
-     * 
-     * @param propertyFileName
-     *            Name of the property file.
-     * @return Returns Properties object containing the contents of the
-     *         specified Properties file.
-     * @throws java.io.FileNotFoundException
-     *             Thrown if the given property file could not found in the
-     *             CLASSPATH.
-     * 
-     */
-    public static Properties getProperties(String propertyFileName) throws java.io.FileNotFoundException {
-
-        InputStream is = null;
-        try {
-            Log4jUtil.info("configPath=" + configPath);
-            is = new FileInputStream(FileHelpers.getFile(propertyFileName));
-
-            if (is == null) {
-                // 文件不存在
-                throw new FileNotFoundException(propertyFileName + " not found");
-            }
-
-            // load properties
-            Properties props = new Properties();
-            // 从文件流中加载properties属性值
-            props.load(is);
-            return props;
-
-        } catch (Exception ignore) {
-            ignore.printStackTrace();
-            throw new java.io.FileNotFoundException(propertyFileName + " not found");
-        } finally {
-            if (is != null) {
-                try {
-                    // 关闭文件流
-                    is.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-        }
-    }
-
-    /**
-     * 
-     * The method <code> getProperties </code> . Loads the given property file
-     * by searching the CLASSPATH or java.class.path system property value and
-     * returns the Properties object.
-     * 
-     * @param propertyFileName
-     *            Name of the property file.
-     * @param onNotFound
-     *            Properties to return if the named properties file is not
-     *            found.
-     * @return Returns Properties object containing the contents of the
-     *         specified Properties file if found, or the onNotFound value if
-     *         not found.
-     * 
-     */
-    public static Properties getProperties(String propertyFileName, Properties onNotFound) {
-        try {
-            return getProperties(propertyFileName);
-        } catch (java.io.FileNotFoundException fe) {
-            Log4jUtil.warn("Properties file not found: " + propertyFileName);
-            return onNotFound;
-        }
-    }
+    
+//     bluetata 2017/03/14 del start ---------------------------------------------------------------------
+//     that methods is moved to PropertyReader class
+//    /**
+//     * 
+//     * The method <code> getProperties </code> . Loads the given property file
+//     * by searching the CLASSPATH or java.class.path system property value and
+//     * returns the Properties object.
+//     * 
+//     * @param propertyFileName
+//     *            Name of the property file.
+//     * @return Returns Properties object containing the contents of the
+//     *         specified Properties file.
+//     * @throws java.io.FileNotFoundException
+//     *             Thrown if the given property file could not found in the
+//     *             CLASSPATH.
+//     * 
+//     */
+//    public static Properties getProperties(String propertyFileName) throws java.io.FileNotFoundException {
+//
+//        InputStream is = null;
+//        try {
+//            Log4jUtil.info("configPath=" + configPath);
+//            is = new FileInputStream(FileHelpers.getFile(propertyFileName));
+//
+//            if (is == null) {
+//                // 文件不存在
+//                throw new FileNotFoundException(propertyFileName + " not found");
+//            }
+//
+//            // load properties
+//            Properties props = new Properties();
+//            // 从文件流中加载properties属性值
+//            props.load(is);
+//            return props;
+//
+//        } catch (Exception ignore) {
+//            ignore.printStackTrace();
+//            throw new java.io.FileNotFoundException(propertyFileName + " not found");
+//        } finally {
+//            if (is != null) {
+//                try {
+//                    // 关闭文件流
+//                    is.close();
+//                } catch (IOException e) {
+//                    e.printStackTrace();
+//                }
+//            }
+//        }
+//    }
+//
+//    /**
+//     * 
+//     * The method <code> getProperties </code> . Loads the given property file
+//     * by searching the CLASSPATH or java.class.path system property value and
+//     * returns the Properties object.
+//     * 
+//     * @param propertyFileName
+//     *            Name of the property file.
+//     * @param onNotFound
+//     *            Properties to return if the named properties file is not
+//     *            found.
+//     * @return Returns Properties object containing the contents of the
+//     *         specified Properties file if found, or the onNotFound value if
+//     *         not found.
+//     * 
+//     */
+//    public static Properties getProperties(String propertyFileName, Properties onNotFound) {
+//        try {
+//            return getProperties(propertyFileName);
+//        } catch (java.io.FileNotFoundException fe) {
+//            Log4jUtil.warn("Properties file not found: " + propertyFileName);
+//            return onNotFound;
+//        }
+//    }
+//  bluetata 2017/03/14 del end ------------------------------------------------------------------------
 
     /**
      * 
@@ -176,10 +176,9 @@ public final class FileHelpers {
      * @return File 返回指定文件名的文件句柄
      */
     public static File getFile(String fileName) {
-        File file = new File(configPath + File.separator + fileName);
+        File file = new File(configPath + File.separator + fileName); // separator 与系统有关的默认名称分隔符,占一个字符
         System.out.println(configPath + File.separator + fileName);
         return file;
-
     }
 
     /**
