@@ -26,6 +26,23 @@ public class PropertyReader {
 
     private static Hashtable<String, Properties> pptContainer = new Hashtable<String, Properties>();
 
+    private static Properties props;
+    
+    /**
+     * 
+     * 方法用途和描述: 获得props属性（重载方法）
+     * 
+     * @param key 属性键
+     * @return 属性值
+     * @author bluetata 2017/03/14 / dietime1943@hotmail.com
+     * @author Name Date(YYYY/MM/dd)
+     * @since datasnatch(crawler) version(1.0)
+     */
+    public final static String getValue(String key) {
+        return StringUtil.isBlank(key) ? null : props.getProperty(key); // fixme テスト待ちーーーーーーーーーーーーー
+    }
+    
+    
     /**
      * 
      * 方法用途和描述: 获得属性
@@ -532,7 +549,7 @@ public class PropertyReader {
     public static Properties getProperties(String propertyFileName) throws java.io.FileNotFoundException {
 
         InputStream is = null;
-        Properties props = null;
+//        Properties props = null;
 
         try {
             if (StringUtil.isEmpty(propertyFileName)) {
