@@ -1,16 +1,19 @@
 package com.datacrawler.common.util;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
 import java.lang.reflect.Method;
+import java.util.Properties;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import yf.utils.html.BaseInfo;
-
 public class CommonUtil {
-    
-    
+
     /**
-     *  En:to concatenate string; Jp:文字が連結する; Zh：字符串链接方法。
+     * En:to concatenate string; Jp:文字が連結する; Zh：字符串链接方法。
      * 
      * @param strValue
      * @return
@@ -24,8 +27,7 @@ public class CommonUtil {
         }
         return stringBuffer.toString();
     }
-    
-    
+
     /**
      * 指定文字列が全て半角であることを検証する。
      * 
@@ -58,10 +60,9 @@ public class CommonUtil {
     public static boolean isMixWidth(String target) {
         return ((!isHalfWidth(target)) && (!isFullWidth(target)));
     }
-    
-    
+
     // ----------------------------------------------------------------------------
-    
+
     /**
      * 指定文字列が半角数字かを検証する。(符号[+/-]を含む)
      * 
@@ -70,14 +71,14 @@ public class CommonUtil {
      * @return 引数のStringを構成する文字が半角数字の場合はtrue、 それ以外の場合はfalseを返す。
      */
     public static boolean isHalfNumber(String target) {
-        if (isHalfWidth(target)){
+        if (isHalfWidth(target)) {
             Pattern p = Pattern.compile("^(-|\\+)?\\d+$");
             Matcher m = p.matcher(target);
             return m.matches();
         }
         return false;
     }
-    
+
     /**
      * 指定文字列が半角数字(0-9)かを検証する。
      * 
@@ -86,14 +87,14 @@ public class CommonUtil {
      * @return 引数のStringを構成する文字が半角数字の場合はtrue、 それ以外の場合はfalseを返す。
      */
     public static boolean isHalfNumberString(String target) {
-        if (isHalfWidth(target)){
+        if (isHalfWidth(target)) {
             Pattern p = Pattern.compile("^[0-9]+$");
             Matcher m = p.matcher(target);
             return m.matches();
         }
         return false;
     }
-    
+
     /**
      * 指定文字列が半角英数字かを検証する。
      * 
@@ -102,14 +103,14 @@ public class CommonUtil {
      * @return 引数のStringを構成する文字が半角英数字の場合はtrue、 それ以外の場合はfalseを返す。
      */
     public static boolean isHalfAlphabetNumber(String target) {
-        if (isHalfWidth(target)){
+        if (isHalfWidth(target)) {
             Pattern p = Pattern.compile("^[A-Za-z0-9]+$");
             Matcher m = p.matcher(target);
             return m.matches();
         }
         return false;
     }
-    
+
     // --------------------------------------------------------------------------
-    
+
 }

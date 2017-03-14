@@ -9,8 +9,9 @@ import org.apache.log4j.PropertyConfigurator;
  * 记录日志的工具类 主要输出字符串 </br>
  * 
  * @version 1.0
- * @since 2017/03/08</br>
- * @author bluetata 
+ * @since datasnatch(crawler) version(1.0)</br>
+ * @author Name  Version(x.0)</br>
+ * @author bluetata  2017/03/08
  */
 public class Log4jUtil {
     // log4j配置文件
