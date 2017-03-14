@@ -39,48 +39,123 @@ public class Log4jUtil {
         return instance;
     }
 
-    public static void debug(String str) {
-        logger.debug(str);
-     // jclLogger.debug(str);
+    /**
+     *      
+     * The method <code> debug </code>
+     * Log a text debug message.
+     * 
+     * @param  message Message to log.
+     */
+    public static void debug(String message) {
+        logger.debug(message);
+     // jclLogger.debug(message);
     }
 
-    public static void debug(String str, Exception e) {
-        logger.debug(str, e);
+    /**
+     * 
+     * The method <code> debug </code>
+     * Log a text debug message with a stack trace. 
+     * 
+     * @param  message Message to log.
+     * @param t  Throwable instance to log.
+     */
+    public static void debug(String message, Throwable t) {
+        logger.debug(message, t);
     }
     
-    public static void info(String str) {
-        logger.info(str);
-     // jclLogger.info(str);
+    /**
+     * 
+     * The method <code> info </code>
+     * Log a text info message.
+     * 
+     * @param  message  Message to log.
+     */
+    public static void info(String message) {
+        logger.info(message);
+     // jclLogger.info(message);
     }
     
-    public static void info(String str, Exception e) {
-        logger.info(str, e);
+    /**
+     * 
+     * The method <code> info </code>
+     * Log a text info message with a stack trace.
+     * 
+     * @param  message Message to log.
+     * @param t  Throwable instance to log. 
+     */
+    public static void info(String message, Throwable t) {
+        logger.info(message, t);
     }
 
-    public static void warn(String str) {
-        logger.warn(str);
-     // jclLogger.warn(str);
+    /**
+     * 
+     * The method <code> warn </code>
+     * Log a text warn message.
+     * 
+     * @param  message  Message to log.
+     */
+    public static void warn(String message) {
+        logger.warn(message);
+     // jclLogger.warn(message);
     }
     
-    public static void warn(String str, Exception e) {
-        logger.warn(str, e);
+    /**
+     * 
+     * The method <code> warn </code>
+     * Log a text warn message with a stack trace.
+     * 
+     * @param message Message to log.
+     * @param t  Throwable instance to log.
+     */
+    public static void warn(String message, Throwable t) {
+        logger.warn(message, t);
     }
 
-    public static void error(String str) {
-        logger.error(str);
-     // jclLogger.error(str);
+    /**
+     * 
+     * The method <code> error </code>
+     * Log a text error message.
+     * 
+     * @param message  Message to log.
+     */
+    public static void error(String message) {
+        logger.error(message);
+     // jclLogger.error(message);
     }
 
-    public static void error(String str, Exception e) {
-        logger.error(str, e);
+    /**
+     * 
+     * The method <code> error </code>
+     * Log a text error message with a stack trace.
+     * 
+     * @param  message Message to log.
+     * @param t  Throwable instance to log.
+     */
+    public static void error(String message, Throwable t) {
+        logger.error(message, t);
     }
     
-    public static void fatal(String str) {
-        logger.fatal(str);
-     // jclLogger.fatal(str);
+    /**
+     * 
+     * The method <code> fatal </code>
+     * Log a text error message.
+     * 
+     * @param message  Message to log.
+     */
+    public static void fatal(String message) {
+        logger.fatal(message);
+     // jclLogger.fatal(message);
     }
     
-    public static void fatal(String str, Exception e) {
-        logger.fatal(str, e);
+    /**
+     * 
+     * The method <code> fatal </code>
+     * Log a text fatal message with a stack trace.
+     * 
+     * @param  message Message to log.
+     * @param t  Throwable instance to log.
+     */
+    public static void fatal(String message, Throwable t) {
+        logger.fatal(message, t);
     }
 }

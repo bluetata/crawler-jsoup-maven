@@ -17,7 +17,7 @@ public class StringUtil {
     /** En: The constant of NULL; Jp: 空文字列を表す定数です。 Zh: 表空文字的常量 */
     public static final String EMPTY = "";
     
-    /** En: The collections are used by generateRandomToken(); Jp: generateRandomToken()で使用する文字集合; 被generateRandomToken()使用的文字集合 */
+    /** En: The collections are used by generateRandomToken(); Jp: generateRandomToken()で使用する文字集合; Zh被generateRandomToken()使用的文字集合 */
     private static final String RTOKEN_DEFAULT_CHARTABLE = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     
     /** generateRandomToken() で生成する文字列の長さ */
@@ -70,5 +70,23 @@ public class StringUtil {
     
     /** デフォルト・エンコーディング Windows-31J */
     public static final String DEFAULT_ENCODING = "Windows-31J";
+    
+    
+    
+    /**
+     * 字符串是null的情况返回空字符串、以外的情况原参数返回。
+     * JP:文字列がnullの場合に空文字を返し、それ以外の場合は引数の値をそのまま返す。
+     * 
+     * @param str 変換対象文字列
+     * @return 文字列がnullの場合に空文字を返し、それ以外の場合は引数の値をそのまま返す
+     */
+    public static String toEmptyIfNull(String str) {
+        if (str == null) {
+            return "";
+        }
+        return str;
+    }
+    
+    
     
 }
