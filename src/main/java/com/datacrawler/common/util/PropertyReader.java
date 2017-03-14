@@ -1,9 +1,13 @@
 package com.datacrawler.common.util;
 
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.Hashtable;
 import java.util.Properties;
+
+import com.datacrawler.consts.SystemConstants;
 
 /**
  * 
@@ -14,6 +18,9 @@ import java.util.Properties;
  * @since datasnatch(crawler) version(1.0)
  */
 public class PropertyReader {
+    
+    // 系统配置文件路径
+    final static String configPath = System.getProperty(SystemConstants.CONFIG_PATH_KEY);
 
     private static Hashtable<String, Properties> pptContainer = new Hashtable<String, Properties>();
 
@@ -31,7 +38,7 @@ public class PropertyReader {
      * @since datasnatch(crawler) version(1.0)
      */
     public final static String getValue(String propertyFilePath, String key) {
-        Properties ppts = getProperties(propertyFilePath);
+        Properties ppts = _getProperties(propertyFilePath);
         return ppts == null ? null : ppts.getProperty(key);
     }
 
@@ -71,7 +78,7 @@ public class PropertyReader {
      * @author Name Date(YYYY/MM/dd)
      * @since datasnatch(crawler) version(1.0)
      */
-    public final static Properties getProperties(String propertyFilePath) {
+    public final static Properties _getProperties(String propertyFilePath) {
         if (propertyFilePath == null) {
             Log4jUtil.error("propertyFilePath is null!");
             return null;
@@ -198,7 +205,7 @@ public class PropertyReader {
      */
     public final static boolean setValueAndStore(String propertyFilePath,
             java.util.Hashtable<String, String> htKeyValue, String storeMsg) {
-        Properties ppts = getProperties(propertyFilePath);
+        Properties ppts = _getProperties(propertyFilePath);
 
         if (ppts == null || htKeyValue == null) {
             return false;
@@ -282,7 +289,7 @@ public class PropertyReader {
      * @since datasnatch(crawler) version(1.0)
      */
     public final static boolean setValue(String propertyFilePath, String key, String value) {
-        Properties ppts = getProperties(propertyFilePath);
+        Properties ppts = _getProperties(propertyFilePath);
         if (ppts == null) {
             return false;
         }
@@ -331,7 +338,7 @@ public class PropertyReader {
      */
     public final static String removeValue(String propertyFilePath, String key) {
 
-        Properties ppts = getProperties(propertyFilePath);
+        Properties ppts = _getProperties(propertyFilePath);
         if (ppts == null) {
             return null;
         }
@@ -356,7 +363,7 @@ public class PropertyReader {
             Log4jUtil.error("key[] is null!");
             return null;
         }
-        Properties ppts = getProperties(propertyFilePath);
+        Properties ppts = _getProperties(propertyFilePath);
         if (ppts == null) {
             return null;
         }
@@ -501,4 +508,56 @@ public class PropertyReader {
         String v2_ = PropertyReader.getValue(path, "name");
         Log4jUtil.info("value2 = " + v2_);
     }
+    
+    
+    
+    /**
+     *      
+     * The method <code> getProperties </code>
+     * Loads the given property file by searching the CLASSPATH or
+     * java.class.path system property value and returns the Properties object. 
+     * 
+     * @param propertyFileName
+     *            Name of the property file.
+     * @return Returns Properties object containing the contents of the
+     *         specified Properties file.
+     * @throws java.io.FileNotFoundException
+     *                Thrown if the given property file could not found in the
+     *                CLASSPATH.
+     *                
+     * @author bluetata 2017/03/14 / dietime1943@hotmail.com
+     * @author Name Date(YYYY/MM/dd)
+     * @since datasnatch(crawler) version(1.0)
+     */
+    public static Properties getProperties(String propertyFileName) throws java.io.FileNotFoundException {
+
+        InputStream is = null;
+        try {
+            // String configPath = System.getProperty("configPath");
+            // File file = new File(configPath + SystemConstants.FILE_SEPARATOR + propertyFileName);
+            is = new FileInputStream(FileHelpers.getFile(propertyFileName));
+            
+            if (is == null) {
+                throw new FileNotFoundException(propertyFileName + " not found");
+            }
+
+            // load properties
+            Properties props = new Properties();
+            props.load(is);
+            return props;
+
+        } catch (Exception ignore) {
+            ignore.printStackTrace();
+            throw new java.io.FileNotFoundException(propertyFileName + " not found");
+        } finally {
+            if (is != null) {
+                try {
+                    is.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+    
 }
