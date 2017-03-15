@@ -5,7 +5,10 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.util.Enumeration;
+import java.util.HashMap;
 import java.util.Hashtable;
+import java.util.Map;
 import java.util.Properties;
 
 import com.datacrawler.consts.SystemConstants;
@@ -15,7 +18,7 @@ import com.datacrawler.consts.UtilsConstants;
  * 
  * 功能描述:动态读取配置文件来加载属性
  * 
- * @author bluetata 2017/03/04 / dietime1943@hotmail.com
+ * @author bluetata / dietime1943@hotmail.com 2017/03/04
  * @author Name Date(YYYY/MM/dd)
  * @since datasnatch(crawler) version(1.0)
  */
@@ -26,21 +29,6 @@ public class PropertyReader {
 
     private static Hashtable<String, Properties> pptContainer = new Hashtable<String, Properties>();
 
-    private static Properties props;
-    
-    /**
-     * 
-     * 方法用途和描述: 获得props属性（重载方法）
-     * 
-     * @param key 属性键
-     * @return 属性值
-     * @author bluetata 2017/03/14 / dietime1943@hotmail.com
-     * @author Name Date(YYYY/MM/dd)
-     * @since datasnatch(crawler) version(1.0)
-     */
-    public final static String getValue(String key) {
-        return StringUtil.isBlank(key) ? null : props.getProperty(key); // fixme テスト待ちーーーーーーーーーーーーー
-    }
     
     
     /**
@@ -52,7 +40,7 @@ public class PropertyReader {
      * @param key
      *            属性键
      * @return 属性值
-     * @author bluetata 2017/03/04 / dietime1943@hotmail.com
+     * @author bluetata / dietime1943@hotmail.com 2017/03/04
      * @author Name Date(YYYY/MM/dd)
      * @since datasnatch(crawler) version(1.0)
      */
@@ -74,7 +62,7 @@ public class PropertyReader {
      *            <br>
      *            <b>注：</b>不能通过类路径来获取到属性文件，而只知道属性文件的文件系统路径，即文件系统地址则用此方法来获取其中的Key所对应的Value
      * @return key的属性值
-     * @author bluetata 2017/03/04 / dietime1943@hotmail.com
+     * @author bluetata / dietime1943@hotmail.com 2017/03/04
      * @author Name Date(YYYY/MM/dd)
      * @since datasnatch(crawler) version(1.0)
      */
@@ -93,10 +81,14 @@ public class PropertyReader {
      * @param propertyFilePath
      *            属性文件(包括类路径)
      * @return 属性
-     * @author bluetata 2017/03/04 / dietime1943@hotmail.com
+     * @author bluetata / dietime1943@hotmail.com 2017/03/04
      * @author Name Date(YYYY/MM/dd)
      * @since datasnatch(crawler) version(1.0)
+     * 
+     * @deprecated 新的替代方法{@link} getProperties()      2017/03/15
+     * 
      */
+    @Deprecated
     public final static Properties _getProperties(String propertyFilePath) {
         if (propertyFilePath == null) {
             Log4jUtil.error("propertyFilePath is null!");
@@ -119,7 +111,7 @@ public class PropertyReader {
      * @param propertyFilePath
      *            属性文件路径(包括类路径及文件系统路径)
      * @return 属性文件对象 Properties
-     * @author bluetata 2017/03/04 / dietime1943@hotmail.com
+     * @author bluetata / dietime1943@hotmail.com 2017/03/04
      * @author Name Date(YYYY/MM/dd)
      * @since datasnatch(crawler) version(1.0)
      */
@@ -145,7 +137,7 @@ public class PropertyReader {
      * @param propertyFilePath
      *            属性文件(包括类路径)
      * @return 属性
-     * @author bluetata 2017/03/04 / dietime1943@hotmail.com
+     * @author bluetata / dietime1943@hotmail.com 2017/03/04
      * @author Name Date(YYYY/MM/dd)
      * @since datasnatch(crawler) version(1.0)
      */
@@ -171,7 +163,7 @@ public class PropertyReader {
      * @param propertyFilePath
      *            属性文件(文件系统的文件路径)
      * @return 属性
-     * @author bluetata 2017/03/04 / dietime1943@hotmail.com
+     * @author bluetata / dietime1943@hotmail.com 2017/03/04
      * @author Name Date(YYYY/MM/dd)
      * @since datasnatch(crawler) version(1.0)
      */
@@ -198,7 +190,7 @@ public class PropertyReader {
      * @param htKeyValue
      *            键值对Hashtable
      * @return
-     * @author bluetata 2017/03/04 / dietime1943@hotmail.com
+     * @author bluetata / dietime1943@hotmail.com 2017/03/04
      * @author Name Date(YYYY/MM/dd)
      * @since datasnatch(crawler) version(1.0)
      */
@@ -218,7 +210,7 @@ public class PropertyReader {
      * @param storeMsg
      *            保存时添加的附加信息（注释）
      * @return
-     * @author bluetata 2017/03/04 / dietime1943@hotmail.com
+     * @author bluetata / dietime1943@hotmail.com 2017/03/04
      * @author Name Date(YYYY/MM/dd)
      * @since datasnatch(crawler) version(1.0)
      */
@@ -275,7 +267,7 @@ public class PropertyReader {
      * @param htKeyValue
      *            属性文件中的键值对Hashtable
      * @return
-     * @author bluetata 2017/03/04 / dietime1943@hotmail.com
+     * @author bluetata / dietime1943@hotmail.com 2017/03/04
      * @author Name Date(YYYY/MM/dd)
      * @since datasnatch(crawler) version(1.0)
      */
@@ -303,7 +295,7 @@ public class PropertyReader {
      * @param value
      *            属性值
      * @return
-     * @author bluetata 2017/03/04 / dietime1943@hotmail.com
+     * @author bluetata / dietime1943@hotmail.com 2017/03/04
      * @author Name Date(YYYY/MM/dd)
      * @since datasnatch(crawler) version(1.0)
      */
@@ -326,7 +318,7 @@ public class PropertyReader {
      *            要保存的路径
      * @param msg
      *            保存时添加的附加信息（注释）
-     * @author bluetata 2017/03/04 / dietime1943@hotmail.com
+     * @author bluetata / dietime1943@hotmail.com 2017/03/04
      * @author Name Date(YYYY/MM/dd)
      * @since datasnatch(crawler) version(1.0)
      */
@@ -351,7 +343,7 @@ public class PropertyReader {
      * @param key
      *            属性键
      * @return
-     * @author bluetata 2017/03/04 / dietime1943@hotmail.com
+     * @author bluetata / dietime1943@hotmail.com 2017/03/04
      * @author Name Date(YYYY/MM/dd)
      * @since datasnatch(crawler) version(1.0)
      */
@@ -373,7 +365,7 @@ public class PropertyReader {
      * @param key
      *            key数组
      * @return 属性文件对象
-     * @author bluetata 2017/03/04 / dietime1943@hotmail.com
+     * @author bluetata / dietime1943@hotmail.com 2017/03/04
      * @author Name Date(YYYY/MM/dd)
      * @since datasnatch(crawler) version(1.0)
      */
@@ -402,7 +394,7 @@ public class PropertyReader {
      * @param key
      *            属性文件中的key数组
      * @return 成功与否（true|false）
-     * @author bluetata 2017/03/04 / dietime1943@hotmail.com
+     * @author bluetata / dietime1943@hotmail.com 2017/03/04
      * @author Name Date(YYYY/MM/dd)
      * @since datasnatch(crawler) version(1.0)
      */
@@ -426,7 +418,7 @@ public class PropertyReader {
      * @param newValue
      *            要更新的新值
      * @return 成功与否（true|false）
-     * @author bluetata 2017/03/04 / dietime1943@hotmail.com
+     * @author bluetata / dietime1943@hotmail.com 2017/03/04
      * @author Name Date(YYYY/MM/dd)
      * @since datasnatch(crawler) version(1.0)
      */
@@ -449,7 +441,7 @@ public class PropertyReader {
      * @param htKeyValue
      *            要更新的键值对Hashtable
      * @return 成功与否（true|false）
-     * @author bluetata 2017/03/04 / dietime1943@hotmail.com
+     * @author bluetata / dietime1943@hotmail.com 2017/03/04
      * @author Name Date(YYYY/MM/dd)
      * @since datasnatch(crawler) version(1.0)
      */
@@ -468,7 +460,7 @@ public class PropertyReader {
      * @param propertyFilePath
      *            属性文件(包括类路径)
      * @return
-     * @author bluetata 2017/03/04 / dietime1943@hotmail.com
+     * @author bluetata / dietime1943@hotmail.com 2017/03/04
      * @author Name Date(YYYY/MM/dd)
      * @since datasnatch(crawler) version(1.0)
      */
@@ -483,7 +475,7 @@ public class PropertyReader {
      * 
      * @param propertyFilePath
      *            要重新加载的Property文件，如果当前内存中没有的话则加载，否则替换
-     * @author bluetata 2017/03/04 / dietime1943@hotmail.com
+     * @author bluetata / dietime1943@hotmail.com 2017/03/04
      * @author Name Date(YYYY/MM/dd)
      * @since datasnatch(crawler) version(1.0)
      */
@@ -501,7 +493,7 @@ public class PropertyReader {
      * @param propertyFileName
      *            属性文件名
      * @return
-     * @author bluetata 2017/03/04 / dietime1943@hotmail.com
+     * @author bluetata / dietime1943@hotmail.com 2017/03/04
      * @author Name Date(YYYY/MM/dd)
      * @since datasnatch(crawler) version(1.0)
      */
@@ -542,14 +534,14 @@ public class PropertyReader {
      *             Thrown if the given property file could not found in the
      *             CLASSPATH.
      * 
-     * @author bluetata 2017/03/14 / dietime1943@hotmail.com
+     * @author bluetata / dietime1943@hotmail.com 2017/03/14
      * @author Name Date(YYYY/MM/dd)
      * @since datasnatch(crawler) version(1.0)
      */
     public static Properties getProperties(String propertyFileName) throws java.io.FileNotFoundException {
 
         InputStream is = null;
-//        Properties props = null;
+        Properties props = null;
 
         try {
             if (StringUtil.isEmpty(propertyFileName)) {
@@ -565,8 +557,9 @@ public class PropertyReader {
             // String configPath = System.getProperty("configPath");
             // File file = new File(configPath + SystemConstants.FILE_SEPARATOR + propertyFileName);
             // is = new FileInputStream(FileHelpers.getFile(propertyFileName));
+            // is = this.getClass().getClassLoader().getResourceAsStream(configPath + File.separator + propertyFileName);
             is = Thread.currentThread().getContextClassLoader()
-                    .getResourceAsStream(configPath + File.separator + propertyFileName);
+                    .getResourceAsStream(File.separator + propertyFileName);
             
             // load properties
             if (is != null) {
@@ -586,6 +579,26 @@ public class PropertyReader {
             }
         }
         return props;
+    }
+    
+    /**
+     * 方法用途和描述: 得到所有的配置信息
+     * @param properties
+     *          属性文件对象
+     * @return map 含有属性文件中的key和value的map
+     * @author bluetata / dietime1943@hotmail.com 2017/03/14
+     * @author Name Date(YYYY/MM/dd)
+     * @since datasnatch(crawler) version(1.0)
+     */
+    public static Map<?, ?> getAll(Properties properties) {
+        Map<String, String> map = new HashMap<String, String>();
+        Enumeration<?> enu = properties.propertyNames();
+        while (enu.hasMoreElements()) {
+            String key = (String) enu.nextElement();
+            String value = properties.getProperty(key);
+            map.put(key, value);
+        }
+        return map;
     }
 
 }
