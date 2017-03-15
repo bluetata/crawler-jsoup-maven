@@ -124,4 +124,10 @@ public class SystemConstants {
      * 系统当前的JS版本号
      */
     public static final String SYS_JS_VER = "system.js.version";
+    
+    /**
+     *  En:the name of common properties. Jp:共同の属性ファイル名。  Zh:共通配置文件
+     */
+    public static final String COM_CONSTANTS = "com-constants.properties";
+    
 }

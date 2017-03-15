@@ -47,4 +47,14 @@ public class UtilsConstants {
      * property suffix
      */
     public static final String PROPS_SUFFIX = ".properties";
+    
+    /**
+     * retry maxRetry count
+     */
+    public static final String MAX_RETRY_COUNT = "maxRetry";
+    
+    /**
+     * retry maxRetry count
+     */
+    public static final String SLEEP_TIME_COUNT = "sleepTime";
 }
