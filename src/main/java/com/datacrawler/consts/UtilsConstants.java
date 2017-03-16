@@ -1,29 +1,29 @@
 /**
- * SystemConstants.java
-
+ * UtilsConstants.java
  *
- * Function： TODO 
+ * Function：Constants class is used by system utils. 
  *
- *   ver     date      		author
+ *   ver     date           author
  * ──────────────────────────────────
- *   		 2009-11-30 		Zhuxr
+ *   1.0     2017/02/22     bluetata
  *
- * Copyright (c) 2009, TNT All Rights Reserved.
+ * Copyright (c) 2017, [https://github.com/] All Rights Reserved.
  */
 package com.datacrawler.consts;
 
 /**
+ * 系统工具类的常量类
  * 
  * @Type: UtilsConstants
- * @Description: 系统工具类的常量类
  * @author bluetata
  * @date 2017/03/14
  * @version 1.0
+ * @since crawler(datasnatch) version(1.0)</br>
  *
  */
 public class UtilsConstants {
 
-    /** 
+    /**
      * quantity sign/ 数量サイン
      */
     public static final String QTY_SIGN = "-";
@@ -32,27 +32,27 @@ public class UtilsConstants {
      * half space / スペース
      */
     public static final String HALF_SPACE = " ";
-    
+
     /**
      * file separator:bias / 斜線
      */
     public static final String FILE_SEPARATOR = "/";
-    
+
     /**
      * default charset used in getUnicodeString
      */
     public static final String DEFAULT_CHARSET = "UTF-8";
-    
+
     /**
      * property suffix
      */
     public static final String PROPS_SUFFIX = ".properties";
-    
+
     /**
      * retry maxRetry count
      */
     public static final String MAX_RETRY_COUNT = "maxRetry";
-    
+
     /**
      * retry maxRetry count
      */

@@ -1,3 +1,14 @@
+/**
+ * UtilsConstants.java
+ *
+ * Function：parse properties file util class/解析properties文件工具类
+ *
+ *   ver     date           author
+ * ──────────────────────────────────
+ *   1.0     2017/02/22     bluetata
+ *
+ * Copyright (c) 2017, [https://github.com/] All Rights Reserved.
+ */
 package com.datacrawler.common.util;
 
 import java.io.File;
@@ -20,7 +31,7 @@ import com.datacrawler.consts.UtilsConstants;
  * 
  * @author bluetata / dietime1943@hotmail.com 2017/03/04
  * @author Name Date(YYYY/MM/dd)
- * @since datasnatch(crawler) version(1.0)
+ * @since crawler(datasnatch) version(1.0)
  */
 public class PropertyReader {
 

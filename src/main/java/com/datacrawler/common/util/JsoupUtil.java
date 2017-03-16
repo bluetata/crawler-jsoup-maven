@@ -1,3 +1,14 @@
+/**
+ * JsoupUtil.java
+ *
+ * Function：simulated browser.
+ *
+ *   ver     date           author
+ * ──────────────────────────────────
+ *   1.0     2017/02/22     bluetata
+ *
+ * Copyright (c) 2017, [https://github.com/] All Rights Reserved.
+ */
 package com.datacrawler.common.util;
 
 import org.jsoup.Jsoup;
@@ -11,15 +22,22 @@ import com.datacrawler.consts.UtilsConstants;
  * Zh:Jsoup形式解析网页工具类
  * 
  * 
- * @since 2017/03/07</br>
+ * @since crawler(datasnatch) version(1.0)</br>
  * @author bluetata</br>
  * @version 1.0</br>
  * 
  */
 public class JsoupUtil {
 
+    /**
+     * 方法用途和描述: 模拟浏览器以String类型返回被访问的网站html
+     * 
+     * @param url 被访问的website
+     * @return _html 以Stirng类型返回被访问网页的html
+     * @throws Exception
+     */
     // 以 String 形式返回网页
-    // 所传のURL必须以 "http://www."开头
+    // 所传的URL必须以 "http://www."开头
     public static String getHtml(String url) throws Exception {
 
         Document doc = null;
@@ -31,6 +49,7 @@ public class JsoupUtil {
         int sleepTime = Integer.parseInt(PropertyReader.getProperties(SystemConstants.COM_CONSTANTS)
                 .getProperty(UtilsConstants.SLEEP_TIME_COUNT));
 
+        // En: if exception is occurred then retry loop is run; Jp: 異常を起きる場合、ループを
         for (int j = 1; j <= maxRetry; j++) {
             
             try{
@@ -41,15 +60,15 @@ public class JsoupUtil {
                         .userAgent(
                                 "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_6_8) AppleWebKit/534.30 (KHTML, like Gecko) Chrome/12.0.742.122 Safari/534.30")
                         .get();
-                // String _html = doc.toString().replaceAll("&amp;", "&"); // 2017
-                // 03 15 bluetata del ,doc.text() is used.
+                // String _html = doc.toString().replaceAll("&amp;", "&"); // replace that logic by doc.text()  bluetata 2013/07/19 del.
                 _html = doc.text();
                 
-                // En:normal finish situation,loop is broken. Jp:サービスが正常に終了した場合、リトライを中止します。 Zh: 正常终了的情况、终止循环。
+                // En:normal finish situation,loop is broken. Jp:サービスが正常に終了した場合、ループを中止します。 Zh: 正常终了的情况、终止循环。
                 break;
                 
             } catch (Exception ex){
-                throw new Exception(ex);
+                // throw new Exception(ex); dead code is occurred
+                
             }
         }
         return _html;

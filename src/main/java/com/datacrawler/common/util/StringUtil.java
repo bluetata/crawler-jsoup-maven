@@ -1,3 +1,14 @@
+/**
+ * StringUtil.java
+ *
+ * Function：Constants class is used by StringUtils 
+ *
+ *   ver     date           author
+ * ──────────────────────────────────
+ *   1.0     2017/02/22     bluetata
+ *
+ * Copyright (c) 2017, [https://github.com/bluetata] All Rights Reserved.
+ */
 package com.datacrawler.common.util;
 
 import java.io.UnsupportedEncodingException;

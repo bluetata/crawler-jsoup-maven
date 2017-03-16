@@ -1,3 +1,14 @@
+/**
+ * UtilsConstants.java
+ *
+ * Function：logj4 util class/log4j工具类
+ *
+ *   ver     date           author
+ * ──────────────────────────────────
+ *   1.0     2017/02/22     bluetata
+ *
+ * Copyright (c) 2017, [https://github.com/] All Rights Reserved.
+ */
 package com.datacrawler.common.util;
 
 import org.apache.commons.logging.Log;
@@ -9,7 +20,7 @@ import org.apache.log4j.PropertyConfigurator;
  * 记录日志的工具类 主要输出字符串 </br>
  * 
  * @version 1.0
- * @since datasnatch(crawler) version(1.0)</br>
+ * @since crawler(datasnatch) version(1.0)</br>
  * @author Name  Version(x.0)</br>
  * @author bluetata  2017/03/08
  */
