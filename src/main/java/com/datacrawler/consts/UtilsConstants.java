@@ -29,6 +29,16 @@ public class UtilsConstants {
     public static final String QTY_SIGN = "-";
 
     /**
+     * sign:ampersand / 符号：アンパサンド  &
+     */
+    public static final String AMPERSAND = "&";
+
+    /**
+     * sign:amp / 符号：アンパ  &amp;
+     */
+    public static final String AMP = "&amp;";
+
+    /**
      * half space / スペース
      */
     public static final String HALF_SPACE = " ";

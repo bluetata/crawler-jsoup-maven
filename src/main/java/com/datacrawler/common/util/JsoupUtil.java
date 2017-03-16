@@ -53,8 +53,8 @@ public class JsoupUtil {
         int sleepTime = Integer.parseInt(PropertyReader.getProperties(SystemConstants.COM_CONSTANTS)
                 .getProperty(UtilsConstants.SLEEP_TIME_COUNT));
 
-        // En: if exception is occurred then retry loop is continue to run; Jp:
-        // 異常を起きる場合、ループを続き実行する。
+        // En: if exception is occurred then retry loop is continue to run;
+        // Jp: 異常を起きる場合、ループを続き実行する。
         for (int j = 1; j <= maxRetry; j++) {
 
             try {
@@ -66,8 +66,9 @@ public class JsoupUtil {
                                 "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_6_8) AppleWebKit/534.30 (KHTML, like Gecko) Chrome/12.0.742.122 Safari/534.30")
                         .get();
 
-                // En:normal finish situation,loop is broken.
-                // Jp:サービスが正常に終了した場合、ループを中止します。 Zh: 正常终了的情况、终止循环。
+                // En: normal finish situation,loop is broken.
+                // Jp: サービスが正常に終了した場合、ループを中止します。
+                // Zh: 正常终了的情况、终止循环。
                 break;
 
             } catch (Exception ex) {
@@ -88,8 +89,7 @@ public class JsoupUtil {
                     prtWriter.close();
                 }
 
-                // En:info log is output. Jp: Infoログとして、エラー内容を出力。 Zh:输出到info
-                // log。
+                // En:info log is output. Jp: Infoログとして、エラー内容を出力。 Zh:输出到info log。
                 Log4jUtil.info(stackTrace);
             }
         }
@@ -99,14 +99,18 @@ public class JsoupUtil {
     /**
      * 模拟浏览器、以String形式返回被访问的url的源码。
      * 
-     * @param url url 被访问的website. 所传的URL必须以 "http://www."开头
-     * @return _html 以Stirng类型返回被访问网页的html
+     * @param url 被访问的website. 所传的URL必须以 "http://www."开头
+     * @return _html 以Stirng类型返回被访问网页的html.如果doc为null的情况方法返回null。
      * @throws Exception
      */
     public static String getHtml(String url) throws Exception {
 
+        String _html = null;
         Document doc = getDocument(url);
-        String _html = doc.toString().replaceAll("&amp;", "&");
+        
+        if (doc != null) {
+            _html = doc.toString().replaceAll(UtilsConstants.AMP, UtilsConstants.AMPERSAND);
+        }
 
         return _html;
     }
