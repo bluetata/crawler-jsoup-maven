@@ -22,7 +22,7 @@ import org.apache.log4j.PropertyConfigurator;
  * @version 1.0
  * @since crawler(datasnatch) version(1.0)</br>
  * @author Name  Version(x.0)</br>
- * @author bluetata  2017/03/08
+ * @author bluetata / dietime1943@gmail.com 2017/03/08
  */
 public class Log4jUtil {
     // log4j配置文件

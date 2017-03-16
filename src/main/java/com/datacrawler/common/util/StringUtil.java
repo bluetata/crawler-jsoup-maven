@@ -27,7 +27,7 @@ import java.util.regex.Pattern;
  * in case if parameter is blank and empty method is added.        bluetata 2017/02/14
  * String check method is added.                                   bluetata 2017/03/15
  * 
- * @author bluetata / dietime1943@hotmail.com
+ * @author bluetata / dietime1943@gmail.com
  */
 public class StringUtil {
 

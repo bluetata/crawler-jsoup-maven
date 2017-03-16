@@ -29,7 +29,7 @@ import com.datacrawler.consts.UtilsConstants;
  * 
  * 功能描述:动态读取配置文件来加载属性
  * 
- * @author bluetata / dietime1943@hotmail.com 2017/03/04
+ * @author bluetata / dietime1943@gmail.com 2017/03/04
  * @author Name Date(YYYY/MM/dd)
  * @since crawler(datasnatch) version(1.0)
  */
