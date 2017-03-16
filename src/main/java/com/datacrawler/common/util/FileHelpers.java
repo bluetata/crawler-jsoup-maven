@@ -1,3 +1,14 @@
+/**
+ * UtilsConstants.java
+ *
+ * Function：file utility class / ファイルユティリティークラス / file工具类
+ *
+ *   ver     date           author
+ * ──────────────────────────────────
+ *   1.0     2017/02/22     bluetata
+ *
+ * Copyright (c) 2017, [https://github.com/] All Rights Reserved.
+ */
 package com.datacrawler.common.util;
 
 import java.io.File;
@@ -25,12 +36,6 @@ public final class FileHelpers {
 
     // 检索目录
     private static String[] m_classPathSearchDirs = null;
-
-    // default charset used in getUnicodeString
-    private static final String DEFAULT_CHARSET = "UTF-8";
-
-    // file separator
-    private static final String FILE_SEPARATOR = "/";
 
     // singleton
     private FileHelpers() {

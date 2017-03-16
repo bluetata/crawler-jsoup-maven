@@ -1,7 +1,7 @@
 /**
  * UtilsConstants.java
  *
- * Function：Constants class is used by system utils. 
+ * Function：Constants class is used by system utility class. 
  *
  *   ver     date           author
  * ──────────────────────────────────
@@ -12,7 +12,7 @@
 package com.datacrawler.consts;
 
 /**
- * 系统工具类的常量类
+ * En:Constants class is used by system utils.Zh:系统工具类的常量类
  * 
  * @Type: UtilsConstants
  * @author bluetata

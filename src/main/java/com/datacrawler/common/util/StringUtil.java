@@ -23,7 +23,11 @@ import java.util.regex.Pattern;
  * En: The extension class of String utility<br>
  * Jp: 文字列ユーティリティの拡張クラス<br>
  * Zh: 文字列utility扩展类<br>
- * @author bluetata
+ * 
+ * in case if parameter is blank and empty method is added.        bluetata 2017/02/14
+ * String check method is added.                                   bluetata 2017/03/15
+ * 
+ * @author bluetata / dietime1943@hotmail.com
  */
 public class StringUtil {
 

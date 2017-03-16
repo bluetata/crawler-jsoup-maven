@@ -1,7 +1,7 @@
 /**
  * UtilsConstants.java
  *
- * Function：parse properties file util class/解析properties文件工具类
+ * Function：parse properties file utility class / 解析properties文件工具类
  *
  *   ver     date           author
  * ──────────────────────────────────

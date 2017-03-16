@@ -1,7 +1,7 @@
 /**
  * UtilsConstants.java
  *
- * Function：logj4 util class/log4j工具类
+ * Function：logj4 utility class / log4j工具类
  *
  *   ver     date           author
  * ──────────────────────────────────

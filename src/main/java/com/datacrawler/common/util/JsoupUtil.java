@@ -1,7 +1,7 @@
 /**
  * JsoupUtil.java
  *
- * Function：simulated browser.
+ * Function：Jsoup utility class.
  *
  *   ver     date           author
  * ──────────────────────────────────
@@ -19,11 +19,11 @@ import com.datacrawler.consts.UtilsConstants;
 
 /**
  * En:Utils class of by <code>Jsoup</code> to parse website html.
- * Zh:Jsoup形式解析网页工具类
- * 
+ * Jp:ウェブサイトを解析する用ユーティリティクラス
+ * Zh:Jsoup模拟浏览器解析网页工具类
  * 
  * @since crawler(datasnatch) version(1.0)</br>
- * @author bluetata</br>
+ * @author bluetata / dietime1943@hotmail.com</br>
  * @version 1.0</br>
  * 
  */
