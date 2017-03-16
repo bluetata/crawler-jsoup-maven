@@ -97,6 +97,7 @@ public class JsoupUtil {
     }
 
     /**
+     * 模拟浏览器、以String形式返回被访问的url的源码。
      * 
      * @param url url 被访问的website. 所传的URL必须以 "http://www."开头
      * @return _html 以Stirng类型返回被访问网页的html
@@ -105,9 +106,7 @@ public class JsoupUtil {
     public static String getHtml(String url) throws Exception {
 
         Document doc = getDocument(url);
-        // String _html = doc.toString().replaceAll("&amp;", "&"); // replace
-        // that logic by doc.text() bluetata 2013/07/19 del.
-        String _html = doc.text();
+        String _html = doc.toString().replaceAll("&amp;", "&");
 
         return _html;
     }
