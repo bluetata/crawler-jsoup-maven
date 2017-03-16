@@ -63,7 +63,7 @@ public class JsoupUtil {
                 }
                 doc = Jsoup.connect(url).timeout(10000)
                         .userAgent(
-                                // add userAgent. that is a plan to configure userAgent to load that userAgent from a property file.
+                                // add userAgent. TODO There is a plan to configure userAgent to load that userAgent from a property file.
                                 "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_6_8) AppleWebKit/534.30 (KHTML, like Gecko) Chrome/12.0.742.122 Safari/534.30")
                         .get();
 
