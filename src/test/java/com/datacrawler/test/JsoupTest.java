@@ -11,14 +11,17 @@ public class JsoupTest {
         String _url = "http://www.w3school.com.cn/tags/html_ref_standardattributes.asp";
 
         getHtmlTest(_url);
-        getDocument(_url);
+        //getDocument(_url);
     }
 
     private static void getHtmlTest(String _url) {
 
         String _html = null;
         try {
-            _html = JsoupUtil.getHtml(_url);
+            // _html = JsoupUtil.getHtml(_url);
+            // http://bbs.csdn.net/forums/Other?page=2
+            _html = JsoupUtil.getDocument("http://bbs.csdn.net/forums/Other", "2").toString();
+            
         } catch (Exception e) {
             e.printStackTrace();
         }
