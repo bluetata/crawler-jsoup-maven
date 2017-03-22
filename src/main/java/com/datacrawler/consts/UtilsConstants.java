@@ -67,4 +67,32 @@ public class UtilsConstants {
      * retry maxRetry count
      */
     public static final String SLEEP_TIME_COUNT = "sleepTime";
+
+    /**
+     * request type → header
+     */
+
+    public static final String REQUEST_HEADERS = "headers";
+
+    /**
+     * request type → date
+     */
+    public static final String REQUEST_DATA = "data";
+
+    /**
+     * request type → cookies
+     */
+    public static final String REQUEST_COOKIES = "cookies";
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 }
