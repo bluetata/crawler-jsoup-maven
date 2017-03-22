@@ -20,7 +20,7 @@ public class JsoupTest {
         try {
             // _html = JsoupUtil.getHtml(_url);
             // http://bbs.csdn.net/forums/Other?page=2
-            _html = JsoupUtil.getDocument("http://bbs.csdn.net/forums/Other", "2").toString();
+            _html = JsoupUtil.getDocument("http://bbs.csdn.net/forums/Other", "page", "2").toString();
             
         } catch (Exception e) {
             e.printStackTrace();
