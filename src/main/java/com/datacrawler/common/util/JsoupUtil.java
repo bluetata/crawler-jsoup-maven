@@ -38,6 +38,9 @@ import com.datacrawler.consts.UtilsConstants;
  * 
  */
 public final class JsoupUtil {
+    
+    private JsoupUtil() {
+    }
 
     /**
      * 方法说明：模拟浏览器,以String形式返回被访问的url的源码。
