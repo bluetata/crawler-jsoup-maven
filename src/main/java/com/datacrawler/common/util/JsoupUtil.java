@@ -37,18 +37,18 @@ import com.datacrawler.consts.UtilsConstants;
  * getDocumentWithData和getDocumentWithCookies以满足在get提交中对不同数据绑定的提交       bluetata 2017/03/22
  * 
  */
-public class JsoupUtil {
+public final class JsoupUtil {
 
     /**
      * 方法说明：模拟浏览器,以String形式返回被访问的url的源码。
      * 
      * @param url 被访问的website. 所传的URL必须以 "http://www."开头
-     * @return _html 以Stirng类型返回被访问网页的html.如果doc为null的情况方法返回null。
+     * @return _html 以Stirng类型返回被访问网页的html.如果doc为null的情况方法返回空串""。
      * @throws Exception
      */
     public static String getHtml(String url) throws Exception {
 
-        String _html = null;
+        String _html = "";
         Document doc = getDocument(url);
         
         if (doc != null) {
@@ -56,6 +56,17 @@ public class JsoupUtil {
         }
 
         return _html;
+    }
+
+    /**
+     * 方法说明：将document对象转换成String类型
+     * 
+     * @param doc 所要转换的document对象
+     * @return _html 以Stirng类型返回被访问网页的html.如果doc为null的情况方法返回空串""。
+     * @throws Exception
+     */
+    public static String covertDoc2Str(Document doc) throws Exception {
+        return doc == null ? "" : doc.toString().replaceAll(UtilsConstants.AMP, UtilsConstants.AMPERSAND);
     }
 
     /**
