@@ -238,6 +238,8 @@ public final class JsoupUtil {
         // En: get sleep time from properties file Jp:プロパティファイルでロックタイムアウトのスリープ時間を取得する
         int sleepTime = Integer.parseInt(PropertyReader.getProperties(SystemConstants.COM_CONSTANTS)
                 .getProperty(UtilsConstants.SLEEP_TIME_COUNT));
+        
+        int temp = 0;
 
         // En: if exception is occurred then retry loop is continue to run;
         // Jp: 異常を起きる場合、ループを続き実行する。
@@ -247,11 +249,12 @@ public final class JsoupUtil {
                 if (j != 1) {
                     Thread.sleep(sleepTime);
                 }
+                temp = Integer.parseInt(Math.round(Math.random()*(UserAgent.length-1))+"");
                 conn = Jsoup.connect(url).timeout(10000)
-                        .userAgent(
+                       // .userAgent(
                                 // add userAgent. TODO There is a plan to configure userAgent to load that userAgent from a property file.
-                                "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_6_8) AppleWebKit/534.30 (KHTML, like Gecko) Chrome/12.0.742.122 Safari/534.30");
-
+                         //       "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_6_8) AppleWebKit/534.30 (KHTML, like Gecko) Chrome/12.0.742.122 Safari/534.30");
+                        .userAgent(UserAgent[temp]);
                 if (bindData != null && bindData.size() != 0 && !StringUtil.isEmpty(requestType)) {
                     switch (requestType) {
                     case UtilsConstants.REQUEST_HEADERS:
