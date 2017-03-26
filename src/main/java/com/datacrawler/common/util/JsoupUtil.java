@@ -249,7 +249,7 @@ public final class JsoupUtil {
                 if (j != 1) {
                     Thread.sleep(sleepTime);
                 }
-                temp = Integer.parseInt(Math.round(Math.random()*(UserAgent.length-1))+"");
+                temp = Integer.parseInt(Math.round(Math.random() * (UserAgent.length - 1)) + "");
                 conn = Jsoup.connect(url).timeout(10000)
                        // .userAgent(
                                 // add userAgent. TODO There is a plan to configure userAgent to load that userAgent from a property file.
@@ -300,7 +300,8 @@ public final class JsoupUtil {
                 }
 
                 // En:info log is output. Jp: Infoログとして、エラー内容を出力。 Zh:输出到info log。
-                Log4jUtil.info(stackTrace);
+                Log4jUtil.error("第" + j + "次请求异常。");
+                Log4jUtil.error(stackTrace);
             }
         }
         return doc;
