@@ -20,11 +20,7 @@ package com.datacrawler.service.model.cn.amazon;
 
 public class AmazonLoginApater {
 
-    /**
-     * @param args
-     */
     public static void main(String[] args) {
-        // TODO Auto-generated method stub
 
     }
 
