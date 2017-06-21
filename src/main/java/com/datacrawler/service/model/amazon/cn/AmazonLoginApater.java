@@ -9,7 +9,7 @@
  *
  * Copyright (c) 2017, [https://github.com/] All Rights Reserved.
  */
-package com.datacrawler.service.model.cn.amazon;
+package com.datacrawler.service.model.amazon.cn;
 
 import java.util.HashMap;
 import java.util.Map;

@@ -5,4 +5,4 @@
  * @author bluetata
  *
  */
-package com.datacrawler.service.model.com.jd;
+package com.datacrawler.service.model.jd.com;

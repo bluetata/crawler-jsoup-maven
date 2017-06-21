@@ -9,7 +9,7 @@
  *
  * Copyright (c) 2017, [https://github.com/] All Rights Reserved.
  */
-package com.datacrawler.service.model.com.jd;
+package com.datacrawler.service.model.jd.com;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -39,7 +39,7 @@ public class JDLoginApater {
             Map<String, String> mapParamsData = new HashMap<String, String>();
             mapParamsData.put("loginType", "f");
             mapParamsData.put("loginname", "18241141433");
-            mapParamsData.put("nloginpwd", "152300");
+            mapParamsData.put("nloginpwd", "password");
             mapParamsData.put("eid", "2QE5VJVZUBCRYD7LQZBJBTEFRNKPMQQA5OXKXNY7AAN4A3DKDTR7IN3GXHE5C6B4GTMW3Z53B4RGORB6YG5LUWF2UA");
             mapParamsData.put("fp", "ae5baf289624644fced3f921c6a3792c");
             mapParamsData.put("pubKey", "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDC7kw8r6tq43pwApYvkJ5laljaN9BZb21TAIfT/vexbobzH7Q8SUdP5uDPXEBKzOjx2L28y7Xs1d9v3tdPfKI2LR7PAzWBmDMn8riHrDDNpUpJnlAGUqJG9ooPn8j7YNpcxCa1iybOlc2kEhmJn5uwoanQq+CA6agNkqly2H4j6wIDAQAB");
