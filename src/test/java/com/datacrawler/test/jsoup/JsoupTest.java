@@ -15,7 +15,7 @@ public class JsoupTest {
         div.prepend("<p>First</p>");
         div.append("<p>Last</p>");
         // now: <div><p>First</p><p>lorem ipsum</p><p>Last</p></div>
-
+        div.appendElement(d);
         Element span = doc.select("span").first(); // <span>One</span>
         span.wrap("<li><a href='http://example.com/'></a></li>");
         // now: <li><a href="http://example.com"><span>One</span></a></li>
