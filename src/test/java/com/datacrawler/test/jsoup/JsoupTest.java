@@ -2,7 +2,9 @@ package com.datacrawler.test.jsoup;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Document.OutputSettings;
 import org.jsoup.nodes.Element;
+import org.jsoup.safety.Whitelist;
 
 public class JsoupTest {
 
@@ -20,6 +22,10 @@ public class JsoupTest {
         span.wrap("<li><a href='http://example.com/'></a></li>");
         // now: <li><a href="http://example.com"><span>One</span></a></li>
         System.out.println(doc.html());
+        
+        String s = Jsoup.clean(doc.html(), "", Whitelist.relaxed(), new OutputSettings().prettyPrint(false));
+        
+        System.out.println(s);
     }
 
 }
