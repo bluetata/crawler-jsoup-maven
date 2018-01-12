@@ -36,7 +36,7 @@ public class GITHUBLoginApater {
     
     public static void main(String[] args) throws Exception {
 
-        simulateLogin("bluetata", "password01234"); // 模拟登陆github的用户名和密码
+        simulateLogin("bluetata", "password1234"); // 模拟登陆github的用户名和密码
 
     }
 
