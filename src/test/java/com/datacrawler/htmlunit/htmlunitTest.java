@@ -24,7 +24,7 @@ public class htmlunitTest {
         
         LogFactory.getFactory().setAttribute("org.apache.commons.logging.Log","org.apache.commons.logging.impl.NoOpLog");
         
-        String url = "https://bluetata.com/";
+        String url = "https://www.douyin.com/share/video/6496703951436516621/?mid=6484356820260686606";
         System.out.println("Loading page now-----------------------------------------------: "+url);
         
         /* HtmlUnit 模拟浏览器 */
@@ -32,15 +32,16 @@ public class htmlunitTest {
         webClient.getOptions().setJavaScriptEnabled(true);              // 启用JS解释器，默认为true  
         webClient.getOptions().setCssEnabled(false);                    // 禁用css支持  
         webClient.getOptions().setThrowExceptionOnScriptError(false);   // js运行错误时，是否抛出异常  
-        webClient.getOptions().setTimeout(10000);                       // 设置连接超时时间 ，这里是10S。如果为0，则无限期等待  
+        webClient.getOptions().setTimeout(10 * 1000);                   // 设置连接超时时间
         HtmlPage page = webClient.getPage(url);
-        webClient.waitForBackgroundJavaScript(30 * 1000); /* will wait JavaScript to execute up to 30s */
+        webClient.waitForBackgroundJavaScript(30 * 1000);               // 等待js后台执行30秒
 
         String pageAsXml = page.asXml();
         
         /* Jsoup解析处理 */
-        Document doc = Jsoup.parse(pageAsXml, "https://bluetata.com/");  
-        Elements pngs = doc.select("img[src$=.png]"); // 获取所有图片元素集
+        // Document doc = Jsoup.parse(pageAsXml, "https://bluetata.com/");
+        Document doc = Jsoup.parse(pageAsXml);  
+        Elements pngs = doc.select("img[src$=.png]");                   // 获取所有图片元素集
         // 其他操作
         System.out.println(doc.toString());
     }
