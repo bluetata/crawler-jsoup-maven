@@ -7,7 +7,6 @@ import java.util.logging.Level;
 import org.apache.commons.logging.LogFactory;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
-import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
 import com.gargoylesoftware.htmlunit.BrowserVersion;
@@ -19,10 +18,10 @@ public class htmlunitTest {
 
     public static void main(String[] args) throws FailingHttpStatusCodeException, MalformedURLException, IOException {
         
-        java.util.logging.Logger.getLogger("com.gargoylesoftware").setLevel(Level.OFF);  
-        java.util.logging.Logger.getLogger("org.apache.http.client").setLevel(Level.OFF);
-        
+        // 屏蔽HtmlUnit等系统 log
         LogFactory.getFactory().setAttribute("org.apache.commons.logging.Log","org.apache.commons.logging.impl.NoOpLog");
+        java.util.logging.Logger.getLogger("com.gargoylesoftware").setLevel(Level.OFF);
+        java.util.logging.Logger.getLogger("org.apache.http.client").setLevel(Level.OFF);
         
         String url = "https://www.douyin.com/share/video/6496703951436516621/?mid=6484356820260686606";
         System.out.println("Loading page now-----------------------------------------------: "+url);
@@ -31,7 +30,8 @@ public class htmlunitTest {
         WebClient webClient = new WebClient(BrowserVersion.CHROME);
         webClient.getOptions().setJavaScriptEnabled(true);              // 启用JS解释器，默认为true  
         webClient.getOptions().setCssEnabled(false);                    // 禁用css支持  
-        webClient.getOptions().setThrowExceptionOnScriptError(false);   // js运行错误时，是否抛出异常  
+        webClient.getOptions().setThrowExceptionOnScriptError(false);   // js运行错误时，是否抛出异常
+        webClient.getOptions().setThrowExceptionOnFailingStatusCode(false);
         webClient.getOptions().setTimeout(10 * 1000);                   // 设置连接超时时间
         HtmlPage page = webClient.getPage(url);
         webClient.waitForBackgroundJavaScript(30 * 1000);               // 等待js后台执行30秒
