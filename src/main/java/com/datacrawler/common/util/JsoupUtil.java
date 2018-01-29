@@ -20,6 +20,8 @@ import java.util.Map;
 import org.jsoup.Connection;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
 
 import com.datacrawler.consts.SystemConstants;
 import com.datacrawler.consts.UtilsConstants;
@@ -305,6 +307,30 @@ public final class JsoupUtil {
             }
         }
         return doc;
+    }
+    
+    
+    /**
+     * 解析HTML获取字符编码
+     * @param doc
+     *          Dcoument 对象
+     * @return
+     * @throws Exception
+     */
+    public static String getStaticCharset(Document doc) throws Exception {
+        String charset = "";
+        String coarseCharset = "";
+        Elements elements = doc.select("meta");
+        for (Element element : elements) {
+            coarseCharset = element.attr("content");
+            if (coarseCharset.contains("charset")) {
+                charset = coarseCharset.substring(
+                        coarseCharset.indexOf("=") + 1, coarseCharset.length());
+
+                return charset;
+            }
+        }
+        return "";
     }
 
     /**
