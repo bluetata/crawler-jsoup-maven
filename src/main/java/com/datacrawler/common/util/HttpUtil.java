@@ -1,3 +1,14 @@
+/**
+ * HttpUtil.java
+ *
+ * Function：HTTP Internet utility class.
+ *
+ *   ver     date           author
+ * ──────────────────────────────────
+ *   1.0     2017/02/22     bluetata
+ *
+ * Copyright (c) 2017, [https://github.com/bluetata] All Rights Reserved.
+ */
 package com.datacrawler.common.util;
 
 import java.io.IOException;
@@ -17,7 +28,7 @@ import org.apache.http.util.EntityUtils;
 /** 
  * Http工具类 
  *  
- * @author Zhu 
+ * @author bluetata
  *  
  */ 
 public class HttpUtil {  
