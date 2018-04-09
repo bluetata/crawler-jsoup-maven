@@ -1,13 +1,14 @@
 package com.datacrawler.test;
 
-import org.jsoup.Connection;
-import org.jsoup.Jsoup;
+import com.datacrawler.common.util.JsoupUtil;
 
 public class HelloWorld {
 
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-	    Connection connection = Jsoup.connect("http://www.bluetata.com").requestBody("");
+	public static void main(String[] args) throws Exception {
+	    
+	    String returnVal = JsoupUtil.getHtml("https://www.y139.net:31321/Gzinter/orderuser?method=CheckIsOrderJthb&upmsg=PhmzZnCAs%2FmwHgttBRJ2iumYM0%2BOsjGaHvXB%2B1QYJ1bAqdhfocExQALWaLKB13Uu");
+	    
+	    System.out.println(returnVal);
 	}
 
 }
