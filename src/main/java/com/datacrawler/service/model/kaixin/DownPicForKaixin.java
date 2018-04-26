@@ -12,9 +12,7 @@
 package com.datacrawler.service.model.kaixin;
 
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileOutputStream;
-import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.URL;
@@ -22,10 +20,8 @@ import java.net.URLConnection;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.sql.DataSource;
-
-import com.bluetata.datacrawler.common.util.jdbc.JdbcAdapter;
-import com.bluetata.datacrawler.common.util.jdbc.MySQLBConnectionPool;
+// import com.bluetata.datacrawler.common.util.jdbc.JdbcAdapter;
+// import com.bluetata.datacrawler.common.util.jdbc.MySQLBConnectionPool;
 
 public class DownPicForKaixin {
 private static 	String outPath="E://downImgForKainxin//1";
@@ -201,7 +197,7 @@ private static	int fileName =1;
 		    is.close();   
 		  }   
 	 
-	 
+	
 	public static boolean checkFileNum(String filePath){ 
 	  File file=new File(filePath);
 	  boolean flag;
@@ -218,22 +214,23 @@ private static	int fileName =1;
       return flag;
 	}
 	
-//	public static List getSingleInfo(String sql) {
-//		List list = new ArrayList();
-//
-//		try {
-//			List list001 = adapter.dbSelect(sql);
-//			if (list001.size() == 0)
-//				return null;
-//			for (int k = 0; k < 1; k++) {
-//				list = (List) list001.get(k);
-//			}
-//		} catch (Exception e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		} finally {
-//
-//		}
-//		return list;
-//	}
+	public static List getSingleInfo(String sql) {
+		List list = new ArrayList();
+
+		try {
+			// List list001 = adapter.dbSelect(sql);
+			List list001 = null;
+			if (list001.size() == 0)
+				return null;
+			for (int k = 0; k < 1; k++) {
+				list = (List) list001.get(k);
+			}
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+
+		}
+		return list;
+	}
 }

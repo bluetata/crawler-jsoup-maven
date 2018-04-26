@@ -11,10 +11,7 @@
  */
 package com.datacrawler.common.util;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
 import org.apache.log4j.Logger;
-import org.apache.log4j.PropertyConfigurator;
 
 /** 
  * 记录日志的工具类 主要输出字符串 </br>

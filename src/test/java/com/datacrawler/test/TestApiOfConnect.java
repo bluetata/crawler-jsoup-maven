@@ -5,7 +5,6 @@ import java.io.IOException;
 import org.jsoup.Connection;
 import org.jsoup.Connection.Response;
 import org.jsoup.Jsoup;
-import org.jsoup.nodes.Document;
 
 public class TestApiOfConnect {
 

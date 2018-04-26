@@ -1,6 +1,5 @@
 package com.datacrawler.test;
 
-import java.io.IOException;
 import java.net.URL;
 
 import org.jsoup.Connection;

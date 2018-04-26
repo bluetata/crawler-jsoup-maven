@@ -39,8 +39,8 @@ public class AmazonLoginApater {
             
             //lets make data map containing all the parameters and its values found in the form
             Map<String, String> mapParamsData = new HashMap<String, String>();
-            mapParamsData.put("email", "dietime1943@hotmail.com");
-            mapParamsData.put("password", "152300");
+            mapParamsData.put("email", "dietime1943@bluetata.com");
+            mapParamsData.put("password", "bluetata");
             
             Response loginResponse = Jsoup.connect("https://passport.jd.com/new/login.aspx")
                     .userAgent(USER_AGENT)

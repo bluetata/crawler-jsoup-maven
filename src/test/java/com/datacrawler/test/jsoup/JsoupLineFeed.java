@@ -1,10 +1,6 @@
 package com.datacrawler.test.jsoup;
 
-import java.io.IOException;
-
 import org.jsoup.Jsoup;
-import org.jsoup.nodes.Document;
-import org.jsoup.nodes.Entities;
 
 public class JsoupLineFeed {
 

@@ -5,8 +5,6 @@ import java.io.IOException;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 
-import com.datacrawler.common.util.JsoupUtil;
-
 public class JsoupTest2 {
 
     public static void main(String[] args) throws IOException {
