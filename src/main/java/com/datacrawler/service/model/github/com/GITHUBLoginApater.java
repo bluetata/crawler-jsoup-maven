@@ -36,7 +36,7 @@ public class GITHUBLoginApater {
     
     public static void main(String[] args) throws Exception {
 
-        simulateLogin("bluetata", "password1234"); // 模拟登陆github的用户名和密码
+        simulateLogin("bluetata", "password123"); // 模拟登陆github的用户名和密码
 
     }
 
@@ -57,26 +57,63 @@ public class GITHUBLoginApater {
         con.header(USER_AGENT, USER_AGENT_VALUE);   // 配置模拟浏览器
         Response rs = con.execute();                // 获取响应
         Document d1 = Jsoup.parse(rs.body());       // 转换为Dom树
+        
+        System.out.println(d1);
+        
         List<Element> eleList = d1.select("form");  // 获取提交form表单，可以通过查看页面源码代码得知
 
         // 获取cooking和表单属性
         // lets make data map containing all the parameters and its values found in the form
         Map<String, String> datas = new HashMap<>();
-        for (Element e : eleList.get(0).getAllElements()) {
-            // 设置用户名
-            if (e.attr("name").equals("login")) {
-                e.attr("value", userName);
-            }
-            // 设置用户密码
-            if (e.attr("name").equals("password")) {
-                e.attr("value", pwd);
-            }
-            // 排除空值表单属性
-            if (e.attr("name").length() > 0) {
-                datas.put(e.attr("name"), e.attr("value"));
+        
+        // 01/24/2019 17:45 bluetata 更新 -------------------------------------------------------------- Start ----------
+        // GitHub多次改版更新，最新的提交request data为:
+        
+        // authenticity_token   ll0RJnG1f9XDAaN1DxnyTDzCs+YXweEZWel9kGkq8TvXH83HjCwPG048sJ/VVjDA94YmbF0qvUgcJx8/IKlP8Q==
+        // commit  Sign+in
+        // login   bluetata
+        // password    password123
+        // utf8    ✓
+        
+        for(int i = 0; i < eleList.size(); i++) {
+        
+            for (Element e : eleList.get(i).getAllElements()) {
+                // 设置用户名
+                if (e.attr("name").equals("login")) {
+                    e.attr("value", userName);
+                }
+                // 设置用户密码
+                if (e.attr("name").equals("password")) {
+                    e.attr("value", pwd);
+                }
+                // 排除空值表单属性
+                if (e.attr("name").length() > 0) {
+                    datas.put(e.attr("name"), e.attr("value"));
+                }
             }
         }
 
+        
+//      旧逻辑  delete  01/24/2019 17:49 bluetata --------------------------------------------start
+//        for (Element e : eleList.get(0).getAllElements()) {
+//            // 设置用户名
+//            if (e.attr("name").equals("login")) {
+//                e.attr("value", userName);
+//            }
+//            // 设置用户密码
+//            if (e.attr("name").equals("password")) {
+//                e.attr("value", pwd);
+//            }
+//            // 排除空值表单属性
+//            if (e.attr("name").length() > 0) {
+//                datas.put(e.attr("name"), e.attr("value"));
+//            }
+//        }
+//      旧逻辑  delete  01/24/2019 17:49 bluetata --------------------------------------------end
+        
+        
+        // 01/24/2019 17:45 bluetata 更新 --------------------------------------------------------------- End -----------
+        
         /*
          * 第二次请求，以post方式提交表单数据以及cookie信息
          */
