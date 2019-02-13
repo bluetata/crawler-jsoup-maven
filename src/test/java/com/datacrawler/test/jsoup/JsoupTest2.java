@@ -12,7 +12,7 @@ public class JsoupTest2 {
         //String url = "https://rate.taobao.com/feedRateList.htm?auctionNumId=552463737787&userNumId=1703495879&currentPageNum=1&pageSize=20&rateType=&orderType=sort_weight&attribute=&sku=&hasSku=false&folded=0&ua=098%23E1hvqvvRvPpvUpCkvvvvvjiPPLcyljlbRsqwsjnEPmPpsjt8RLMvtjiER2q9ljnvRsyCvvBvpvvv9phv2n1w3xqBzYswM20S79wCvvNwzHi4z0CNiQhvChCvCCptvpvhphvvvvyCvh1vVxOvITlz8eQEfaAK53n5WDKt5BwsWD6rfuVHR4hSoAZnD704deDHEcqhaXTAVAIanixreTt%2BCclWQRp4e0Q4b64B9CkaU6UsxI2hKphv8hCvvvvvvhCvphvZJ9vvpu1vpC9CvvC216CvHjIvvhPjphvZK9vvpYJivpvUphvh3cUYvR7EvpvVp6WUCEIXvphvCyCCvvvvvvGCvvpvvvvv3QhvChCCvvvtvpvhphvvv86CvvDvppWpJpCv7OQ%3D&_ksTS=1519956772500_2207&callback=jsonp_tbcrate_reviews_list";
         // String url = "http://www.shixiseng.com/";
 
-        String url = "https://xyq.cbg.163.com/equip?s=421&eid=201807121900113-421-ZFGO9TFACKSM&view_loc=equip_list";
+        String url = "http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhfdm/2017/45/14/25/451425202.html";
         Document doc = Jsoup.connect(url).timeout(4000).userAgent("Mozilla").get();
         
         System.out.println(doc.html());

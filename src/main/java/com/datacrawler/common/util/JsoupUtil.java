@@ -251,7 +251,7 @@ public final class JsoupUtil {
                 if (j != 1) {
                     Thread.sleep(sleepTime);
                 }
-                temp = Integer.parseInt(Math.round(Math.random() * (UserAgent.length - 1)) + "");
+                temp = Integer.parseInt(String.valueOf(Math.round(Math.random() * (UserAgent.length - 1))));
                 conn = Jsoup.connect(url).timeout(10000)
                        // .userAgent(
                                 // add userAgent. TODO There is a plan to configure userAgent to load that userAgent from a property file.

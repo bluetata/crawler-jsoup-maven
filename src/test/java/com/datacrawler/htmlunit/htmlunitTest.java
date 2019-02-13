@@ -23,7 +23,7 @@ public class htmlunitTest {
         java.util.logging.Logger.getLogger("com.gargoylesoftware").setLevel(Level.OFF);
         java.util.logging.Logger.getLogger("org.apache.http.client").setLevel(Level.OFF);
         
-        String url = "https://www.douyin.com/share/video/6496703951436516621/?mid=6484356820260686606";
+        String url = "https://www.newsmth.net/nForum/#!section/Estate";
         System.out.println("Loading page now-----------------------------------------------: "+url);
         
         /* HtmlUnit 模拟浏览器 */
@@ -41,9 +41,11 @@ public class htmlunitTest {
         /* Jsoup解析处理 */
         // Document doc = Jsoup.parse(pageAsXml, "https://bluetata.com/");
         Document doc = Jsoup.parse(pageAsXml);  
-        Elements pngs = doc.select("img[src$=.png]");                   // 获取所有图片元素集
+        //Elements pngs = doc.select("img[src$=.png]");                   // 获取所有图片元素集
+        
+        Elements eles = doc.select("td.title_1");
         // 其他操作
-        System.out.println(doc.toString());
+        System.out.println(eles.toString());
     }
     
     
