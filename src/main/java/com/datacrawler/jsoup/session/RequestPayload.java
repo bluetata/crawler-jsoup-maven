@@ -1,8 +1,11 @@
 package com.datacrawler.jsoup.session;
 
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 
 import org.jsoup.Connection;
+import org.jsoup.Connection.Method;
 import org.jsoup.Connection.Response;
 import org.jsoup.Jsoup;
 
@@ -36,6 +39,16 @@ public class RequestPayload {
         Response response = connection.execute();
 
 
+        // upload file by jsoup
+        File file1 = new File("C:/dir/file1.txt");
+        FileInputStream fs1 = new FileInputStream(file1);
+
+        Response response1 = Jsoup.connect("http://bluetata.com/")
+            .data("text","Jsoup upload")            
+            .data("file1", "uploadTest.txt", fs1)
+            .method(Method.POST)
+            .execute();
+        
     }
 
 }
