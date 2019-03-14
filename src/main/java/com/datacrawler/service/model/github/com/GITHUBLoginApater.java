@@ -24,9 +24,10 @@ import org.jsoup.nodes.Element;
 
 /**
  * @since      crawler(datasnatch) version(1.0)</br>
- * @author     bluetata / dietime1943@gmail.com</br>
- * @reference  http://blog.csdn.net/dietime1943/</br>
+ * @author     bluetata / sekito.lv@gmail.com</br>
+ * @reference  http://bluetata.blog.csdn.net/</br>
  * @version    1.0</br>
+ * @update     03/14/2019 16:00
  */
 public class GITHUBLoginApater {
 
